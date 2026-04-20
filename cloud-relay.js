@@ -269,7 +269,7 @@ wss.on("close", () => clearInterval(heartbeat));
 // ──────────────────────────────────────
 // Start server
 // Start the server
-server.listen(PORT, () => {
+server.listen(PORT, "0.0.0.0", () => {
   console.log(`
   ┌──────────────────────────────────────────────────┐
   │                                                  │
