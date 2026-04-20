@@ -4,8 +4,9 @@
   "description": "DesignFlow Desktop Connector — bridges cloud platform to local Figma and After Effects",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
-    "dev": "NODE_ENV=development electron .",
+    "start": "node cloud-relay.js",
+    "desktop": "electron .",
+    "dev:desktop": "NODE_ENV=development electron .",
     "build:mac": "electron-builder --mac",
     "build:win": "electron-builder --win",
     "build:all": "electron-builder --mac --win"
