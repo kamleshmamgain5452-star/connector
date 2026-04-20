@@ -1,0 +1,40 @@
+{
+  "name": "designflow-connector",
+  "version": "1.0.0",
+  "description": "DesignFlow Desktop Connector — bridges cloud platform to local Figma and After Effects",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "NODE_ENV=development electron .",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win",
+    "build:all": "electron-builder --mac --win"
+  },
+  "dependencies": {
+    "auto-launch": "^5.0.6",
+    "electron-store": "^8.2.0",
+    "ws": "^8.20.0"
+  },
+  "devDependencies": {
+    "electron": "^28.3.3",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "io.designflow.connector",
+    "productName": "DesignFlow Connector",
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "assets/icon.icns"
+    },
+    "win": {
+      "icon": "assets/icon.ico"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**/*",
+      "bridge/**/*",
+      "assets/**/*"
+    ]
+  }
+}
