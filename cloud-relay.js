@@ -36,12 +36,14 @@ const connections = new Map();
 const server = http.createServer((req, res) => {
   const pathname = url.parse(req.url).pathname;
 
-  if (pathname === "/health") {
+  // Root or /health check for Railway/hosting platforms
+  if (pathname === "/" || pathname === "/health") {
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify({
       status: "healthy",
+      service: "DesignFlow Relay",
       connectors: connections.size,
-      uptime: process.uptime(),
+      uptime: Math.floor(process.uptime()),
     }));
     return;
   }
