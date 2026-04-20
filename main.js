@@ -18,7 +18,7 @@ const { BridgeManager } = require("./bridge/bridge-manager");
 const store = new Store({
   defaults: {
     sessionKey: null,
-    cloudUrl: "wss://YOUR_RELAY_URL_HERE", // Change this after deploying relay
+    cloudUrl: "wss://connector-production-cc6f.up.railway.app",
     localWsPort: 3003,
     aeWatchFolder: path.join(app.getPath("documents"), "DesignFlow", "ae-scripts"),
     autoLaunch: true,
