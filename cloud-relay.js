@@ -93,6 +93,7 @@ function handleMessage(ws, clientType, msg) {
         return;
       }
 
+      // Upgrade identification if not already set by URL
       ws.sessionKey = sessionKey;
       ws.clientType = "connector";
 
@@ -101,7 +102,7 @@ function handleMessage(ws, clientType, msg) {
       }
       connections.get(sessionKey).connector = ws;
 
-      console.log(`✅ Connector registered: session [${sessionKey}]`);
+      console.log(`✅ [${sessionKey}] Connector detected and registered`);
       ws.send(JSON.stringify({ type: "registered", status: "ok" }));
 
       // Notify browser if connected
@@ -124,6 +125,7 @@ function handleMessage(ws, clientType, msg) {
         return;
       }
 
+      // Upgrade identification if not already set by URL
       ws.sessionKey = sessionKey;
       ws.clientType = "browser";
 
@@ -132,7 +134,7 @@ function handleMessage(ws, clientType, msg) {
       }
       connections.get(sessionKey).browser = ws;
 
-      console.log(`✅ Browser registered: session [${sessionKey}]`);
+      console.log(`✅ [${sessionKey}] Browser detected and registered`);
 
       // Send current connector status
       const connectorWs = connections.get(sessionKey)?.connector;
